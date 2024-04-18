@@ -4,7 +4,8 @@ import './output.scss'
 
 const Output = ({ ipInfo }) => {
   const stateRegX = /\w+$/
-  const timeZoneRegx = /[A-Za-z]{3}-[0-9]{4}/
+  const timeZoneRegx = /[A-Za-z]{3}-[0-9]{4}/ 
+  console.log(Date(ipInfo?.time?.gtm_offset).toString().match(timeZoneRegx)[0])
 
   console.log()
   return (
@@ -19,7 +20,7 @@ const Output = ({ ipInfo }) => {
       </li>
       <li>
         <p>timezone</p>
-        <h2>{ new Date(ipInfo?.time?.gtm_offset).toString().match(timeZoneRegx)[0]}</h2>
+        <h2>{Date(ipInfo?.time?.gtm_offset).toString().match(timeZoneRegx)[0]}</h2>
       </li>
       <li>
         <p>isp</p>

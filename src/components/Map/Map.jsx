@@ -1,4 +1,4 @@
-import { GoogleMap, MarkerClustererF, MarkerF} from '@react-google-maps/api'
+import { GoogleMap, MarkerF} from '@react-google-maps/api'
 import { useState,useMemo } from 'react'
 import marker from '../../assets/icon-location.svg'
 import './map.scss'
