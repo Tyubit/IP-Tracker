@@ -5,9 +5,14 @@ import './output.scss'
 const Output = ({ ipInfo }) => {
   const stateRegX = /\w+$/
   const timeZoneRegx = /[A-Za-z]{3}-[0-9]{4}/ 
-  console.log(Date(ipInfo?.time?.gtm_offset).toString().match(timeZoneRegx)[0])
+  const handletimeZone = () => {
+    const timezone = Date(ipInfo?.time?.gtm_offset)
+    if (timezone.match(timeZoneRegx)[0] !== null)
+      return timezone.match(timeZoneRegx)[0]
+    return  "not found"
+  }
 
-  console.log()
+
   return (
     <ul>
       <li>
@@ -20,7 +25,7 @@ const Output = ({ ipInfo }) => {
       </li>
       <li>
         <p>timezone</p>
-        <h2>{Date(ipInfo?.time?.gtm_offset).toString().match(timeZoneRegx)[0]}</h2>
+        <h2>{handletimeZone()}</h2>
       </li>
       <li>
         <p>isp</p>

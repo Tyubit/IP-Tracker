@@ -7,7 +7,8 @@ import './map.scss'
 
 const Map = ({coordinates}) => {
     //33.23107702737697, -117.25595722335544
-    const center = useMemo(() => ({ lat: coordinates[0], lng: coordinates[1]}),[coordinates])
+    console.log(Number(coordinates[0]))
+    const center = useMemo(() => ({ lat: Number(coordinates[0]), lng: Number(coordinates[1])}),[coordinates])
     
     const defMapOptions = {
         disableDefaultUI: true,
@@ -24,7 +25,7 @@ const Map = ({coordinates}) => {
             options={defMapOptions}
         >
             
-            <MarkerF position={{ lat: coordinates[0], lng: coordinates[1] }}
+            <gmp-advanced-marker position={`${ coordinates[0],coordinates[0] }`}
             options={{icon: marker}}/>
         </GoogleMap>
     </div>
