@@ -7,6 +7,7 @@ import './map.scss'
 
 const Map = ({coordinates}) => {
     //33.23107702737697, -117.25595722335544
+    console.log(typeof(coordinates[1]))
     console.log(coordinates[0])
     const center = useMemo(() => ({ lat: coordinates[0], lng: coordinates[1]}),[coordinates])
     
@@ -20,13 +21,13 @@ const Map = ({coordinates}) => {
 
         <GoogleMap
             mapContainerClassName='map-container'
-            center={center}
+            center={{lat: coordinates[0], lng: coordinates[1]}}
             zoom={16}
             options={defMapOptions}
         >
             
-            <gmp-advanced-marker position={`${ coordinates[0],coordinates[0] }`}
-            options={{icon: marker}}/>
+            <gmp-advanced-marker position={`${ coordinates[0]},${coordinates[0] }`}
+            options={{icon: marker}}></gmp-advanced-marker>
         </GoogleMap>
     </div>
   )
